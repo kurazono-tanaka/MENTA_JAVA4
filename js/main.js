@@ -4,11 +4,11 @@
   const addTaskValue = document.getElementById('task');
   const tbody = document.querySelector('tbody');
 
-  const todo = {};
   const todos = [];
 
   // todoを追加する関数
   function addTask(task) {
+    const todo = {};
     todo.task = task;
     todo.status = '作業中';
     todos.push(todo);
