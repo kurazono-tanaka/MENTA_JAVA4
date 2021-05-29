@@ -6,12 +6,16 @@
 
   const todos = [];
 
+  class Todo {
+    constructor(task) {
+      this.task = task;
+      this.status = '作業中';
+    }
+  }
+
   // todoを追加する関数
   function addTask(task) {
-    const todo = {};
-    todo.task = task;
-    todo.status = '作業中';
-    todos.push(todo);
+    todos.push( new Todo(task));
   }
 
   // todoを表示する関数
