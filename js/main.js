@@ -13,9 +13,13 @@
     }
   }
 
+  const test = new Todo(task);
+
   // todoを追加する関数
   function addTask(task) {
-    todos.push( new Todo(task));
+    test.task = null;
+    todos.push(test);
+    console.log(test);
   }
 
   // todoを表示する関数
