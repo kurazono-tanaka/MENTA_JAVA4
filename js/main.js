@@ -17,7 +17,7 @@
 
   // todoを追加する関数
   function addTask(task) {
-    test.task = null;
+    test.task = task;
     todos.push(test);
     console.log(test);
   }
