@@ -9,6 +9,7 @@
   // todoを追加する関数
   function addTask(task) {
     const todo = {};
+    todo.id = todos.length;
     todo.task = task;
     todo.status = '作業中';
     todos.push(todo);
@@ -19,12 +20,12 @@
     while(tbody.firstChild !== null){
       tbody.removeChild(tbody.firstChild);
     }
-    todos.forEach((todo, index) => {
+    todos.forEach((todo) => {
       //行作成
       const tr = document.createElement('tr');
       //ID
       const idTd = document.createElement('td');
-      idTd.textContent = index;
+      idTd.textContent = todo.id;
       tr.appendChild(idTd);
       //コメント
       const commentTd = document.createElement('td');
@@ -40,6 +41,17 @@
       const removeTd = document.createElement('td');
       const removeButton = document.createElement('button');
       removeButton.textContent = '削除';
+      removeButton.addEventListener('click',() => {
+      　const targetTask = removeButton.closest('tr');
+        tbody.removeChild(targetTask);
+        todos.splice(todo.id, 1);
+        todos.forEach((todo, index) => {
+          todo.id = index;
+        });
+        tbody.childNodes.forEach((tr,index) => {
+          tr.firstChild.textContent = todos[index].id;
+        });
+      });
       removeTd.appendChild(removeButton);
       tr.appendChild(removeTd);
       //行追加
@@ -53,4 +65,5 @@
     displayTodos();
     addTaskValue.value = '';
   });
+
 }
