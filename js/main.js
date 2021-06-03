@@ -35,6 +35,14 @@
       const statusTd = document.createElement('td');
       const statusButton = document.createElement('button');
       statusButton.textContent = todo.status;
+      statusButton.addEventListener('click',() => {
+        if(statusButton.textContent === "作業中") {
+          todo.status = "完了";
+        } else if(statusButton.textContent === "完了") {
+          todo.status = "作業中";
+        }
+        statusButton.textContent = todo.status;
+      });
       statusTd.appendChild(statusButton);
       tr.appendChild(statusTd);
       //削除
