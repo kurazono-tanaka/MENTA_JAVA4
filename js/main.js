@@ -40,11 +40,11 @@
   }
 
   // todoを表示する関数
-  function displayTodos(todos) {
+  function displayTodos(array) {
     while(tbody.firstChild !== null){
       tbody.removeChild(tbody.firstChild);
     }
-    todos.forEach((todo) => {
+    array.forEach((todo) => {
       //行作成
       const tr = document.createElement('tr');
       //ID
